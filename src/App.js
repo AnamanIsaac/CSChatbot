@@ -1,22 +1,35 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+import CSChatBot from './CSChatbot'; // You'll need to save the chatbot as a separate component
 
 function App() {
+  const [showChat, setShowChat] = useState(false);
+
+  if (showChat) {
+    return <CSChatBot />;
+  }
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Welcome to CS Assistant Chatbot
         </p>
-        <a
+        <button
           className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+          onClick={() => setShowChat(true)}
+          style={{
+            cursor: 'pointer',
+            border: 'none',
+            background: 'none',
+            color: '#61dafb',
+            fontSize: '18px'
+          }}
         >
-          Learn React
-        </a>
+          Open CS Chatbot
+        </button>
       </header>
     </div>
   );
